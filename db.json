@@ -1,0 +1,10 @@
+{
+  "users": [
+    { "id": 1, "email": "admin@abc.com", "password": "123456", "name": "Admin ABC", "role": "admin" },
+    { "id": 2, "email": "user@gmail.com", "password": "123456", "name": "Nguyễn Văn A", "role": "user" }
+  ],
+  "bookings": [],
+  "news": [
+    { "id": 1, "title": "Khai trương chi nhánh Đà Nẵng", "content": "Giảm 20% cho khách đặt sớm...", "image": "images/news1.jpg", "date": "28/11/2025" }
+  ]
+}
