@@ -1,0 +1,403 @@
+/* public/css/style.css */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; color: #333; background: #f8f9fa; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+/* ====================== HEADER SIÊU ĐẸP & CÂN ĐỐI ====================== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(135deg, #f5bd14ec, #e6c72c);
+  color: white;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  padding: 0;
+}
+
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+
+/* Logo sát trái */
+.logo {
+  font-size: 32px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+/* Thanh tìm kiếm ở giữa */
+.search-bar {
+  flex: 1;
+  max-width: 500px;
+  margin: 0 40px;
+  display: flex;
+  border-radius: 50px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 16px 20px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background: white;
+}
+
+.search-bar button {
+  padding: 0 30px;
+  background: #e67e22;
+  color: white;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.search-bar button:hover {
+  background: #d35400;
+}
+
+/* Menu + User bên phải */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  font-size: 16px;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-menu a:hover {
+  color: #f55b53;
+}
+
+/* Nút đăng nhập */
+.auth-btn {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 10px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.auth-btn:hover {
+  background: white;
+  color: #1a4971;
+}
+
+/* Khi đã đăng nhập */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(255,255,255,0.15);
+  padding: 10px 20px;
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
+}
+
+.user-info strong {
+  color: #ffd700;
+}
+
+.logout-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.logout-btn:hover {
+  background: #c0392b;
+}
+
+.admin-btn {
+  background: #f39c12;
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.admin-btn:hover {
+  background: #e67e22;
+}
+
+/* Responsive cho điện thoại */
+@media (max-width: 992px) {
+  .header-container { padding: 0 15px; }
+  .search-bar { max-width: 300px; margin: 0 20px; }
+  .nav-menu { gap: 15px; font-size: 14px; }
+  .nav-menu a { display: none; } /* Ẩn menu chữ trên mobile nếu cần */
+  .logo { font-size: 26px; }
+}
+#userInfo { color: gold; font-weight: bold; }
+
+.slider { margin-top: 80px; height: 500px; overflow: hidden; position: relative; }
+.slide { position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.5s; }
+.slide.active { opacity: 1; }
+
+.section { padding: 80px 0; }
+.room-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; margin-top: 30px; }
+.room-card {
+  background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+.room-card:hover { transform: translateY(-10px); }
+.room-card img { width: 100%; height: 200px; object-fit: cover; }
+.room-card h3 { padding: 15px 15px 5px; color: #1a4971; }
+.room-card p { padding: 0 15px; color: #666; font-size: 14px; }
+.room-card .price { font-size: 20px; font-weight: bold; color: #e67e22; padding: 10px 15px; }
+.room-card button {
+  width: 100%; padding: 15px; background: #27ae60; color: white; border: none; font-size: 16px; cursor: pointer;
+}
+.room-card button:disabled { background: #95a5a6; cursor: not-allowed; }
+
+footer { background: #2c3e50; color: white; text-align: center; padding: 40px 0; }
+/* ====================== SLIDER SIÊU MƯỢT ====================== */
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  margin-top: 80px; /* vì header fixed */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+/* Nút prev/next */
+.prev-btn, .next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 16px;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.prev-btn:hover, .next-btn:hover {
+  background: rgba(230, 126, 34, 0.9);
+}
+
+.prev-btn { left: 20px; }
+.next-btn { right: 20px; }
+
+/* Chấm tròn dưới slider */
+.dots {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  background: rgba(110, 99, 99, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.dot.active, .dot:hover {
+  background: #e67e22;
+  transform: scale(1.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .slider-container { height: 400px; }
+  .prev-btn, .next-btn { padding: 10px; font-size: 20px; }
+}
+/* ====================== MODAL ĐẶT PHÒNG ĐẸP LUNG LINH ====================== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.4s;
+}
+
+.modal-content {
+  position: relative;
+  margin: 5% auto;
+  width: 90%;
+  max-width: 900px;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  animation: slideUp 0.5s;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px; right: 25px;
+  font-size: 40px;
+  color: #aaa;
+  cursor: pointer;
+  z-index: 10;
+}
+.close-btn:hover { color: #e74c3c; }
+
+.modal-body {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.room-preview {
+  flex: 1;
+  min-width: 300px;
+  position: relative;
+}
+
+#modalImage {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.room-info {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  color: white;
+  padding: 30px 20px 20px;
+}
+
+.room-info h2 { margin: 0; font-size: 28px; }
+.room-info p { margin: 8px 0; opacity: 0.9; }
+.price { font-size: 24px !important; font-weight: bold; color: #e67e22 !important; }
+
+.booking-form {
+  flex: 1;
+  min-width: 300px;
+  padding: 40px;
+  background: #f8f9fa;
+}
+
+.booking-form h3 {
+  margin-bottom: 20px;
+  color: #1a4971;
+  font-size: 22px;
+}
+
+.booking-form input {
+  width: 100%;
+  padding: 14px;
+  margin: 12px 0;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.form-actions {
+  margin-top: 25px;
+  display: flex;
+  gap: 15px;
+}
+
+.confirm-btn {
+  flex: 1;
+  padding: 15px;
+  background: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+.confirm-btn:hover { background: #1e8449; }
+
+.cancel-btn {
+  padding: 15px 30px;
+  background: #95a5a6;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.cancel-btn:hover { background: #7f8c8d; }
+
+/* Toast thông báo */
+.toast {
+  position: fixed;
+  bottom: 30px; left: 50%;
+  transform: translateX(-50%);
+  background: #27ae60;
+  color: white;
+  padding: 16px 30px;
+  border-radius: 50px;
+  font-size: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  z-index: 3000;
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.toast.show {
+  opacity: 1;
+  bottom: 50px;
+}
+
+/* Animation */
+@keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+@keyframes slideUp { from {transform:translateY(100px);opacity:0;} to {transform:translateY(0);opacity:1;} }

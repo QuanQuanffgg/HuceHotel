@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HUCE Hotel - Đặt Phòng Cao Cấp</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-container">
+    <div class="logo">HUCE HOTEL</div>
+
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Tìm phòng: 101, Đôi, VIP, Suite...">
+      <button onclick="searchRooms()">Tìm</button>
+    </div>
+
+    <nav class="nav-menu">
+      <a href="#">Giới thiệu</a>
+      <a href="/booking-form.html">Đặt phòng</a>
+      <a href="#news">Tin tức</a>
+      <a href="#contact">Liên hệ</a>
+
+      <button id="loginBtn" class="auth-btn" onclick="location.href='/login.html'">Đăng nhập</button>
+
+      <div id="userInfo" class="user-info" style="display:none;">
+        <span>Xin chào <strong id="userName"></strong></span>
+        <button onclick="logout()" class="logout-btn">Đăng xuất</button>
+        <a href="/admin.html" id="adminLink" class="admin-btn" style="display:none;">Quản trị</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- SLIDER TỰ ĐỘNG - ĐÃ SỬA ĐƯỜNG DẪN + JS -->
+<div class="slider-container">
+  <div class="slides-wrapper">
+    <img src="hotel1.jpg" class="slide active">
+    <img src="hotel2.jpg" class="slide">
+    <img src="hotel3.jpg" class="slide">
+    <img src="hotel4.jpg" class="slide">
+  </div>
+
+  <div class="dots-container">
+    <span class="dot active" onclick="currentSlide(0)"></span>
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+  </div>
+</div>
+
+<section id="booking" class="section">
+  <div class="container">
+    <h2 style="text-align:center;font-size:32px;color:#1a4971;">Tìm & Đặt Phòng Ngay</h2>
+    <div id="roomList" class="room-grid"></div>
+  </div>
+</section>
+
+<section id="news" class="section">
+  <div class="container">
+    <h2 style="text-align:center;color:#1a4971;">Tin Tức & Ưu Đãi</h2>
+    <div id="newsList"></div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="container">
+    <p>© 2025 HUCE Hotel - Hotline: 1900 1234</p>
+  </div>
+</footer>
+
+<!-- MODAL ĐẶT PHÒNG SIÊU ĐẸP -->
+<div id="bookingModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">×</span>
+    <div class="modal-body">
+      <div class="room-preview">
+        <img id="modalImage" src="" alt="Phòng">
+        <div class="room-info">
+          <h2 id="modalTitle">Phòng 101 - Phòng Đơn</h2>
+          <p id="modalDesc">Mô tả phòng...</p>
+          <p class="price" id="modalPrice">800.000đ / đêm</p>
+        </div>
+      </div>
+      <div class="booking-form">
+        <h3>Thông tin đặt phòng</h3>
+        <input type="text" id="customerName" placeholder="Họ và tên *" required>
+        <input type="tel" id="customerPhone" placeholder="Số điện thoại *" required>
+        <input type="date" id="checkinDate" required>
+        <input type="date" id="checkoutDate" required>
+        <div class="form-actions">
+          <button onclick="confirmBooking()" class="confirm-btn">Xác nhận đặt phòng</button>
+          <button onclick="closeModal()" class="cancel-btn">Hủy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="successToast" class="toast">
+  <span>Đặt phòng thành công! Chúng tôi sẽ liên hệ sớm.</span>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
